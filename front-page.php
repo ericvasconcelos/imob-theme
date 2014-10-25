@@ -100,19 +100,142 @@
 
 	<section id="list-property">
 		<div class="container">
-			<div id="filter">
-				<div></div>
+			<div id="filter" class="cf">
+				<div class="tit-filter">
+					<h3>Filtre os Imóveis</h3>
+				</div>
 				<nav>
-					<a href="">Todos</a>
+					<a href="" class="active">Todos</a>
 					<a href="">Casa</a>
 					<a href="">Apartamento</a>
 					<a href="">Comercial</a>
 				</nav>
 			</div>
-			<div class="list-property">
+			<div class="list-property cf">
 				<div class="property">
 					<div class="img">
-						<img src="" alt="">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/imovel-lista.jpg" alt="Imóvel">
+					</div>
+					<div class="status-prop cf forsale">
+						<span>À Venda</span>
+					</div>
+					<div class="address">
+						<p class="street">Rua Namur 792, Vila Valqueire</p>
+						<p class="city">Rio de Janeiro</p>
+					</div>
+					<div class="price">
+						<i class="icon-money"></i>
+						<span class="price-prop">230.000</span>
+					</div>
+					<div class="info">
+						<div class="foot-plan">
+							<i class="icon-foot-plan"></i>
+							<span class="value">70<span>m²</span></span>
+						</div>
+						<div class="beds">
+							<i class="icon-beds"></i>
+							<span class="value">2</span>
+						</div>
+						<div class="bathroons">
+							<i class="icon-bathroons"></i>
+							<span class="value">1</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="property">
+					<div class="img">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/imovel-lista.jpg" alt="Imóvel">
+					</div>
+					<div class="status-prop">
+						<span>À Venda</span>
+					</div>
+					<div class="address">
+						Rua Namur 792, Vila Valqueire
+					</div>
+					<div class="price">
+						<i class="icon-money"></i>
+						<span class="price-prop">230.000</span>
+					</div>
+					<div class="info">
+						<div class="foot-plan">
+							<i class="icon-foot-plan"></i>
+							<span class="value">70<span>m²</span></span>
+						</div>
+						<div class="beds">
+							<i class="icon-beds"></i>
+							<span class="value">2</span>
+						</div>
+						<div class="bathroons">
+							<i class="icon-bathroons"></i>
+							<span class="value">1</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="property">
+					<div class="img">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/imovel-lista.jpg" alt="Imóvel">
+					</div>
+					<div class="status-prop">
+						<span>À Venda</span>
+					</div>
+					<div class="address">
+						Rua Namur 792, Vila Valqueire
+					</div>
+					<div class="price">
+						<i class="icon-money"></i>
+						<span class="price-prop">230.000</span>
+					</div>
+					<div class="info">
+						<div class="foot-plan">
+							<i class="icon-foot-plan"></i>
+							<span class="value">70<span>m²</span></span>
+						</div>
+						<div class="beds">
+							<i class="icon-beds"></i>
+							<span class="value">2</span>
+						</div>
+						<div class="bathroons">
+							<i class="icon-bathroons"></i>
+							<span class="value">1</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="property">
+					<div class="img">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/imovel-lista.jpg" alt="Imóvel">
+					</div>
+					<div class="status-prop">
+						<span>À Venda</span>
+					</div>
+					<div class="address">
+						Rua Namur 792, Vila Valqueire
+					</div>
+					<div class="price">
+						<i class="icon-money"></i>
+						<span class="price-prop">230.000</span>
+					</div>
+					<div class="info">
+						<div class="foot-plan">
+							<i class="icon-foot-plan"></i>
+							<span class="value">70<span>m²</span></span>
+						</div>
+						<div class="beds">
+							<i class="icon-beds"></i>
+							<span class="value">2</span>
+						</div>
+						<div class="bathroons">
+							<i class="icon-bathroons"></i>
+							<span class="value">1</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="property">
+					<div class="img">
+						<img src="<?php echo get_template_directory_uri(); ?>/assets/images/imovel-lista.jpg" alt="Imóvel">
 					</div>
 					<div class="status-prop">
 						<span>À Venda</span>

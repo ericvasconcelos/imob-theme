@@ -19,37 +19,17 @@ function imobiliaria_setup_theme()
 }
 
 
-function imobiliaria_scripts()
-{
-   
-   wp_register_script(
-        'imobiliaria-jquery-ui',
-        get_stylesheet_directory_uri() . '/assets/js/jquery-ui.min.js',
-        '',
-        array('imobiliaria-jquery'),
-        true
-    );
-    wp_register_script(
-        'imobiliaria-viewportchecker',
-        get_stylesheet_directory_uri() . '/assets/js/libs/jquery.viewportchecker.min.js',
-        '',
-        array('imobiliaria-jquery'),
-        true
-    );
+function imobiliaria_scripts() {   
+    $template_url = get_template_directory_uri();
 
-    wp_register_script(
-        'imobiliaria-main',
-        get_stylesheet_directory_uri() . '/assets/js/main.min.js',
-        '',
-        array('imobiliaria-jquery'),
-        true
-    );
-    wp_enqueue_style(
-        'imobiliaria-style-main',
-        get_stylesheet_directory_uri() . '/assets/css/main.css',
-        true,
-        'all'
-    );
+    // Main jQuery.
+    wp_enqueue_script('imobiliaria-jquery', $template_url . '/assets/js/jquery.min.js', array(), null, true );
+
+    // Main JS.
+    wp_enqueue_script('imobiliaria-mainjs', $template_url . '/assets/js/main.js' , array(), null, true );
+
+    // Main CSS.
+    wp_enqueue_style('imobiliaria-style-main', $template_url . '/assets/css/main.css', true, 'all');
 
 }
 
