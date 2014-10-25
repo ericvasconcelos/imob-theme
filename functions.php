@@ -46,7 +46,7 @@ function imobiliaria_scripts()
     );
     wp_enqueue_style(
         'imobiliaria-style-main',
-        get_stylesheet_directory_uri() . '/assets/css/main.min.css',
+        get_stylesheet_directory_uri() . '/assets/css/main.css',
         true,
         'all'
     );
