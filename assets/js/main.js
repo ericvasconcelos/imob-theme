@@ -3,13 +3,10 @@ jQuery(document).ready(function ($) {
 
     var imob = {
 
-        adjustWideProperty: function () {
-            $(".list-property").find(".property:nth-of-type(4n)").addClass("first-item");
-        }
+        
 
     }
 
-    imob.adjustWideProperty();
     
 
     /* --------------------------------------------

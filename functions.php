@@ -91,25 +91,25 @@ function imobiliaria_custom_excerpt_more($more)
 function imobiliaria_register_sidebars()
 {
 
-    register_sidebar(
-        array(
-            'name' => 'Widgets Lateral',
-            'id' => 'imobiliaria-widgets-side',
-            'description' => 'Arraste aqui os widgets que serão exibidos na lateral do site.',
-            'before_widget' => '<aside class="widget %2$s" id="%1$s">',
-            'after_widget' => '</aside>',
-            'before_title' => '<h1 class="widget-title">',
-            'after_title' => '</h1>',
-        )
-    );
+    // register_sidebar(
+    //     array(
+    //         'name' => 'Widgets Lateral',
+    //         'id' => 'imobiliaria-widgets-side',
+    //         'description' => 'Arraste aqui os widgets que serão exibidos na lateral do site.',
+    //         'before_widget' => '<aside class="widget %2$s" id="%1$s">',
+    //         'after_widget' => '</aside>',
+    //         'before_title' => '<h1 class="widget-title">',
+    //         'after_title' => '</h1>',
+    //     )
+    // );
 
     register_sidebar(
         array(
             'name' => 'Widgets Rodapé',
             'id' => 'imobiliaria-widgets-footer',
             'description' => 'Arraste aqui os widgets que serão exibidos no rodapé do site.',
-            'before_widget' => '<aside class="widget %2$s" id="%1$s">',
-            'after_widget' => '</aside>',
+            'before_widget' => '<div class="widget %2$s col-3" id="%1$s">',
+            'after_widget' => '</div>',
             'before_title' => '<h1 class="widget-title">',
             'after_title' => '</h1>',
         )
@@ -163,3 +163,74 @@ function imobiliaria_pagination()
 
 
 
+
+/*-------------------------------------------*
+    Criado um widget
+*------------------------------------------*/
+class about_us_widget extends WP_Widget {
+
+function __construct() {
+    parent::__construct(
+    // Base ID of your widget
+    'about_us_widget', 
+
+    // Widget name will appear in UI
+    __('Sobre você/empresa', 'about_us_widget_domain'), 
+
+    // Widget description
+    array( 'description' => __( 'Descreva sobre você ou sua empresa', 'about_us_widget_domain' ), ) 
+    );
+}
+
+// Criando o Front-end do Widget
+public function widget( $args, $instance ) {
+
+    $descricao = apply_filters( 'widget_title', $instance['descricao'] );
+    // Tag de abertura 
+    echo $args['before_widget'];
+    echo '<div class="about-us">';
+
+        // Título
+        echo $args['before_title'] . 'Sobre' . $args['after_title'];
+        // Descrição
+        if ( ! empty( $descricao ) )
+        echo '<p>' . $descricao . '</p>';
+    
+    echo '</div>';
+    // Tag de fechamento
+    echo $args['after_widget'];
+}
+        
+// Widget Back-end 
+public function form( $instance ) {
+    if ( isset( $instance[ 'descricao' ] ) ) {
+        $descricao = $instance[ 'descricao' ];
+    } else {
+        $descricao = __( 'Nova Descrição', 'about_us_widget_domain' );
+    }
+
+// Formulário do widget no admin
+?>
+<p>
+    <label for="<?php echo $this->get_field_id( 'descricao' ); ?>"><?php _e( 'Descrição:' ); ?></label> 
+    <textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id( 'descricao' ); ?>" name="<?php echo $this->get_field_name( 'descricao' ); ?>">
+        <?php if (!empty($descricao)) echo $descricao; ?>
+    </textarea>
+</p>
+
+<?php 
+}
+    
+// Atualizando o widget substituindo as antigas instâncias com as novas
+public function update( $new_instance, $old_instance ) {
+    $instance = array();
+    $instance['descricao'] = ( ! empty( $new_instance['descricao'] ) ) ? strip_tags( $new_instance['descricao'] ) : '';
+            return $instance;
+    }
+} // fim da class about_us_widget
+
+// Registrando e rodando o widget
+function about_us_load_widget() {
+    register_widget( 'about_us_widget' );
+}
+add_action( 'widgets_init', 'about_us_load_widget' );

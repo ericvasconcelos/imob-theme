@@ -97,6 +97,84 @@ p {
 	display: table;
 	clear: both;
 }
+.row:before,
+.row:after {
+  display: table;
+  content: " ";
+}
+.row:after {
+  clear: both;
+}
+.row:before,
+.row:after {
+  display: table;
+  content: " ";
+}
+.row:after {
+  clear: both;
+}
+.row,
+.row .row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  float: left;
+}
+.col-1 {
+  width: 8.333333333333332%;
+}
+.col-2 {
+  width: 16.666666666666664%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33333333333333%;
+}
+.col-5 {
+  width: 41.66666666666667%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.333333333333336%;
+}
+.col-8 {
+  width: 66.66666666666666%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33333333333334%;
+}
+.col-11 {
+  width: 91.66666666666666%;
+}
+.col-12 {
+  width: 100%;
+}
+
+
 
 /* Ícones */
 @font-face {
@@ -438,17 +516,9 @@ p {
 
 .property {
 	float: left;
-	width: 22.5%;
-	margin-right: 3.33333%;
+	width: 100%;
 	margin-bottom: 30px;
-	border: 1px solid #ccc;
-}
-.property.first-item {
-	margin-right: 0;
-}
-
-.property .img {
-
+	border: 1px solid #e0eaec;
 }
 .property .img img {
 	display: block;
@@ -476,8 +546,16 @@ p {
 	background-color: #007bb4;
 }
 
+.property .status-prop.forrent {
+	border-top-color: #ff4c35;
+}
+.property .status-prop.forrent span {
+	background-color: #ff4c35;
+}
+
 .property .address {
 	padding: 0 10px;
+	margin-bottom: 20px;	
 }
 .property .address .street {
 	padding: 20px 0 10px 0;
@@ -486,8 +564,73 @@ p {
 }
 .property .address .city {
 	font-size: 14px;
-	color: #999;
+	color: #747f85;
 }
+.property .price {
+	display: block;
+	width: 130px;
+	margin: 0 auto 20px auto;
+	padding-top: 10px;
+	border-top: 1px solid #e0e9ee;
+	text-align: center;
+	color: #007bb4;
+}
+.property .price i {
+	font-size: 14px;
+	width: 4px;
+	display: inline-block;
+	vertical-align: top;
+}
+.property .price .price-prop {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.property .info {
+	background-color: #f2f8f8;
+	border-top: 1px solid #e0eaec;
+}
+.property .info > div {
+	display: block;
+	float: left;
+	height: 50px;
+	width: 33.33333%;
+	padding-top: 12px;
+	border-left: 1px solid #e0eaec;
+	text-align: center;
+}
+.property .info > div > i,
+.property .info > div > span {
+	display: inline-block;
+	vertical-align: middle;
+}
+.property .info > div > i {
+	background-image: url(../images/sprite.png);
+	background-repeat: no-repeat;
+	height: 25px;
+	margin-right: 4px;
+}
+.property .info .value {
+	font-size: 16px;
+	font-weight: bold;
+	color: #747f85;
+}
+.property .info .foot-plan {
+	border-left: none;
+}
+.property .info .foot-plan .icon-foot-plan {
+	background-position: 0 0;
+	width: 28px;
+}
+.property .info .beds .icon-beds {
+	background-position: -39px -2px;
+	width: 32px;
+}
+.property .info .bathroons .icon-bathroons {
+	background-position: -79px 0;
+	width: 27px;
+}
+
 
 /* ======================================
 	FOOTER
