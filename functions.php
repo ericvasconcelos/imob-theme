@@ -110,7 +110,7 @@ function imobiliaria_register_sidebars()
             'description' => 'Arraste aqui os widgets que serão exibidos no rodapé do site.',
             'before_widget' => '<div class="widget %2$s col-3" id="%1$s">',
             'after_widget' => '</div>',
-            'before_title' => '<h1 class="widget-title">',
+            'before_title' => '<h1 class="widget-title-footer">',
             'after_title' => '</h1>',
         )
     );
@@ -185,7 +185,7 @@ function __construct() {
 // Criando o Front-end do Widget
 public function widget( $args, $instance ) {
 
-    $descricao = apply_filters( 'widget_title', $instance['descricao'] );
+    $descricao = apply_filters( 'widget_descricao', $instance['descricao'] );
     // Tag de abertura 
     echo $args['before_widget'];
     echo '<div class="about-us">';

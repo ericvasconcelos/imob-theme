@@ -511,7 +511,7 @@ p {
 .list-property {
 	width: 100%;
 	height: auto;
-	margin-top: 40px;
+	margin: 40px 20px;
 }
 
 .property {
@@ -636,5 +636,147 @@ p {
 	FOOTER
 =========================================*/
 #footer {
-	
+	width: 100%;
+}
+
+/* Top footer */
+.top-footer {
+	width: 100%;
+	background-color: #f7f7f7;
+	border-top: 1px solid #e3e3e3;
+	padding: 40px 0;
+}
+
+/* Widgets footer */
+.top-footer .widget-title-footer {
+	font-size: 13px;
+	text-transform: uppercase;
+	color: #313131;
+	margin-bottom: 20px;
+}
+
+/* about-us*/
+.about-us p {
+	font-size: 13px;
+	color: #313131;
+	line-height: 18px;
+}
+
+/* Tags */
+.tagcloud a {
+	display: block;
+	float: left;
+	margin: 0 5px 5px 0;
+	padding: 10px 15px;
+	background-color: #fcfcfc;
+	border: 1px solid #e3e3e3;
+	color: #313131;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+
+
+/* Form contato */
+input[type=text],
+input[type=email],
+input[type=tel],
+select,
+textarea {
+	background-color: #fff;
+	border: 1px solid #e3e3e3;
+	width: 100%;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+	outline: none;
+}
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=tel]:focus,
+select:focus,
+textarea:focus {
+	border-color: #313131;
+}
+
+.wpcf7 input[type=text]::-webkit-input-placeholder,
+.wpcf7 input[type=email]::-webkit-input-placeholder,
+.wpcf7 input[type=tel]::-webkit-input-placeholder,
+.wpcf7 select::-webkit-input-placeholder,
+.wpcf7 textarea::-webkit-input-placeholder { /* WebKit browsers */
+    font-style: italic;
+}
+.wpcf7 input[type=text]:-moz-placeholder,
+.wpcf7 input[type=email]:-moz-placeholder,
+.wpcf7 input[type=tel]:-moz-placeholder,
+.wpcf7 select:-moz-placeholder,
+.wpcf7 textarea:-moz-placeholder { /* WebKit browsers */
+    font-style: italic;
+}
+.wpcf7 input[type=text]::-moz-placeholder,
+.wpcf7 input[type=email]::-moz-placeholder,
+.wpcf7 input[type=tel]::-moz-placeholder,
+.wpcf7 select::-moz-placeholder,
+.wpcf7 textarea::-moz-placeholder { /* WebKit browsers */
+    font-style: italic;
+}
+.wpcf7 input[type=text]:-ms-input-placeholder,
+.wpcf7 input[type=email]:-ms-input-placeholder,
+.wpcf7 input[type=tel]:-ms-input-placeholder,
+.wpcf7 select:-ms-input-placeholder,
+.wpcf7 select::-moz-placeholder { /* WebKit browsers */
+    font-style: italic;
+}
+
+.wpcf7 input[type=text],
+.wpcf7 input[type=email],
+.wpcf7 input[type=tel],
+.wpcf7 select {
+	padding-left: 32px;
+}
+.wpcf7 input[type=text],
+.wpcf7 input[type=email],
+.wpcf7 input[type=tel] {
+	height: 36px;
+}
+.wpcf7 textarea {
+	padding-top: 8px;
+	text-indent: 31px;
+}
+.wpcf7 p {
+	position: relative;
+	margin-bottom: 10px;
+}
+.wpcf7 i {
+	position: absolute;
+	z-index: 2;
+	top: 10px;
+	left: 10px;
+	color: #c1c5c6;
+}
+.wpcf7 input[type=submit] {
+	border: none;
+	background-color: #007bb4;
+	height: 35px;
+	padding: 0 15px;
+	margin-top: 10px;
+	color: #fff;
+	font-weight: bold;
+	font-size: 13px;
+	cursor: pointer;
+
+	-webkit-transition: all 0.4s linear;
+	-moz-transition: all 0.4s linear;
+	-ms-transition: all 0.4s linear;
+	-o-transition: all 0.4s linear;
+	transition: all 0.4s linear;
+}
+.wpcf7 input[type=submit]:hover {
+    opacity: 0.8;
+    -khtml-opacity: 0.8;
+    -moz-opacity: 0.8;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=0.8);
+}
+.wpcf7 input[type=submit]:focus {
+	position: relative;
+	top: 1px;
 }
