@@ -53,11 +53,17 @@
                 </div><!-- /contacts-->
                 <div class="social-languages">
                     <div class="languages">
-                        <a href="#">Português</a>
-                        <a href="#">Inglês</a>
-                        <a href="#">Espanhol</a>
+                        <a class="lang-port" href="#">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/brazil.png" alt="Portuguese - Brazil">
+                        </a>
+                        <a class="lang-eng" href="#">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/united-states.png" alt="English - USA">
+                        </a>
+                        <a class="lang-spa" href="#">
+                            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/spain.png" alt="Spanish">
+                        </a>
                     </div><!-- /languages -->
-                    <div class="social">
+                    <nav class="social">
                         <a href="" class="pinterest">
                             <i class="icon-pinterest"></i>
                         </a>
@@ -73,7 +79,7 @@
                         <a href="" class="twitter">
                             <i class="icon-twitter"></i>
                         </a>
-                    </div><!-- /social -->
+                    </nav><!-- /social -->
                 </div><!-- /social-languages -->
 
             </div><!-- /container-->

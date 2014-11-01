@@ -161,8 +161,20 @@ function imobiliaria_pagination()
     );
 }
 
+/*-------------------------------------------*
+    Desativando alguns widgets
+*------------------------------------------*/
+function remove_some_widgets() {
+    unregister_widget('WP_Widget_Pages');
+    unregister_widget('WP_Widget_Calendar');
+    unregister_widget('WP_Widget_Archives');
+    unregister_widget('WP_Widget_Meta');
+    unregister_widget('WP_Nav_Menu_Widget');
+    unregister_widget('WP_Widget_Recent_Comments');
+    unregister_widget('WP_Widget_RSS');
+}
 
-
+add_action( 'widgets_init', 'remove_some_widgets' );
 
 /*-------------------------------------------*
     Criado um widget
@@ -185,13 +197,16 @@ function __construct() {
 // Criando o Front-end do Widget
 public function widget( $args, $instance ) {
 
+    $title = apply_filters( 'widget_title', $instance['title'] );
     $descricao = apply_filters( 'widget_descricao', $instance['descricao'] );
     // Tag de abertura 
     echo $args['before_widget'];
     echo '<div class="about-us">';
 
         // Título
-        echo $args['before_title'] . 'Sobre' . $args['after_title'];
+        if ( ! empty( $title ) )
+        echo $args['before_title'] . $title . $args['after_title'];
+
         // Descrição
         if ( ! empty( $descricao ) )
         echo '<p>' . $descricao . '</p>';
@@ -209,9 +224,17 @@ public function form( $instance ) {
         $descricao = __( 'Nova Descrição', 'about_us_widget_domain' );
     }
 
-// Formulário do widget no admin
+    if ( isset( $instance[ 'title' ] ) ) {
+        $title = $instance[ 'title' ];
+    } else {
+        $title = __( 'Título', 'about_us_widget_domain' );
+    }
+
 ?>
 <p>
+    <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Título:'); ?></label>
+    <input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:100%;" />
+
     <label for="<?php echo $this->get_field_id( 'descricao' ); ?>"><?php _e( 'Descrição:' ); ?></label> 
     <textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id( 'descricao' ); ?>" name="<?php echo $this->get_field_name( 'descricao' ); ?>">
         <?php if (!empty($descricao)) echo $descricao; ?>
@@ -222,11 +245,14 @@ public function form( $instance ) {
 }
     
 // Atualizando o widget substituindo as antigas instâncias com as novas
-public function update( $new_instance, $old_instance ) {
-    $instance = array();
-    $instance['descricao'] = ( ! empty( $new_instance['descricao'] ) ) ? strip_tags( $new_instance['descricao'] ) : '';
-            return $instance;
+    public function update( $new_instance, $old_instance ) {
+        $instance = array();
+        $instance['descricao'] = ( ! empty( $new_instance['descricao'] ) ) ? strip_tags( $new_instance['descricao'] ) : '';
+        $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+
+        return $instance;
     }
+
 } // fim da class about_us_widget
 
 // Registrando e rodando o widget

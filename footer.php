@@ -20,25 +20,33 @@
     <div class="bot-footer">
         <div class="container">
             <div class="row">
-                <div class="col-6">
-                    <p>&copy; <?php echo date( 'Y' ); ?>  <?php bloginfo( 'name' ); ?> - Todos os direitos reservados.</p>
+                <div class="col-8">
+                    <p class="copyright">&copy; <?php echo date( 'Y' ); ?>  <?php bloginfo( 'name' ); ?> - Todos os direitos reservados.</p>
                 </div><!-- /col-6 -->
-                <div class="col-6">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a href=""><span class="icon-facebook"></span></a>
-                        </li>
-                        <li>
-                            <a href=""><span class="icon-twitter"></span></a>
-                        </li>
-                        <li>
-                            <a href=""><span class="icon-googleplus"></span></a>
-                        </li>
-                        <li>
-                            <a href=""><span class="icon-github"></span></a>
-                        </li>
-                    </ul>
-                </div><!-- /col-6 -->
+                <div class="col-3">
+                    <nav class="social-footer">
+                        <a href="" class="pinterest">
+                            <i class="icon-pinterest"></i>
+                        </a>
+                        <a href="" class="instagram">
+                            <i class="icon-instagram"></i>
+                        </a>
+                        <a href="" class="youtube">
+                            <i class="icon-youtube"></i>
+                        </a>
+                        <a href="" class="facebook">
+                            <i class="icon-facebook"></i>
+                        </a>
+                        <a href="" class="twitter">
+                            <i class="icon-twitter"></i>
+                        </a>
+                    </nav><!-- /social -->
+                </div><!-- /col-3 -->
+                <div class="col-1">
+                    <span class="back-top">
+                        ^
+                    </span>
+                </div>
             </div><!-- /row -->
         </div><!-- /container -->
     </div><!-- /bot-footer -->

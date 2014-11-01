@@ -161,7 +161,7 @@
 								<i class="icon-money"></i>
 								<span class="price-prop">230.000</span>
 							</div>
-							<div class="info">
+							<div class="info cf">
 								<div class="foot-plan">
 									<i class="icon-foot-plan"></i>
 									<span class="value">70<span>m²</span></span>
