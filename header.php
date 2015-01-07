@@ -37,6 +37,11 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
+ <?php 
+    // Armazenando os dados do theme options
+    $theme_opts = get_option( 'info_contact' ); 
+?>
+
 <div class="all">
     <header id="header" role="banner">
         <div class="top-header">
@@ -44,11 +49,19 @@
                 <div class="contacts">
                     <span class="email">
                         <i class="icon-mail-alt"></i>
-                        <span>contato@imobiliaria.com.br</span>
+                        <span><?php echo $theme_opts['email_opts']; ?></span>
                     </span>
                     <span class="tel">
                         <i class="icon-phone"></i>
-                        <span>+55 21 2783-1233</span>
+                        <span><?php echo $theme_opts['tel_opts']; ?> 
+                            
+                            <?php
+                                if (isset($theme_opts['tel_adicional_opts'])) {
+                                    echo ' / ';
+                                    echo $theme_opts['tel_adicional_opts'];
+                                }
+                            ?> 
+                        </span>
                     </span>
                 </div><!-- /contacts-->
                 <div class="social-languages">
@@ -64,21 +77,28 @@
                         </a>
                     </div><!-- /languages -->
                     <nav class="social">
-                        <a href="" class="pinterest">
-                            <i class="icon-pinterest"></i>
-                        </a>
-                        <a href="" class="instagram">
-                            <i class="icon-instagram"></i>
-                        </a>
-                        <a href="" class="youtube">
-                            <i class="icon-youtube"></i>
-                        </a>
-                        <a href="" class="facebook">
+                        <a href="<?php echo $theme_opts['fb-link'] ?>" class="Facebook">
                             <i class="icon-facebook"></i>
                         </a>
-                        <a href="" class="twitter">
+                        <a href="<?php echo $theme_opts['twt-link'] ?>" class="Twitter">
                             <i class="icon-twitter"></i>
                         </a>
+                        <a href="<?php echo $theme_opts['insta-link'] ?>" class="Instagram">
+                            <i class="icon-instagram"></i>
+                        </a>
+                        <a href="<?php echo $theme_opts['linked-link'] ?>" class="LinkedIn">
+                            <i class="icon-linkedin"></i>
+                        </a>
+                        <a href="<?php echo $theme_opts['yt-link'] ?>" class="YouTube">
+                            <i class="icon-youtube"></i>
+                        </a>
+                        <a href="<?php echo $theme_opts['gplus-link'] ?>" class="Google Plus">
+                            <i class="icon-gplus"></i>
+                        </a>
+                        <a href="<?php echo $theme_opts['pint-link'] ?>" class="Pinterest">
+                            <i class="icon-pinterest"></i>
+                        </a>
+                        
                     </nav><!-- /social -->
                 </div><!-- /social-languages -->
 
@@ -94,7 +114,15 @@
                     <span class="icon-bar"></span>
                 </button> -->
                 <a href="<?php echo get_site_url(); ?>/" class="logo">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.png" alt="Site Imobiliária">
+
+                    <?php 
+                    $attachment_id = $theme_opts['logomarca_opts']; // attachment ID
+
+                    $image_attributes = wp_get_attachment_image_src( $attachment_id ); // returns an array
+                    if( $image_attributes ) {
+                    ?> 
+                    <img src="<?php echo $image_attributes[0]; ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>" alt="<?php echo $image_attributes[3]; ?>">
+                    <?php } ?>
                 </a>
                 <nav class="menu-navigation" role="navigation">
                     <?php

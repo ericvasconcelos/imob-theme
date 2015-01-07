@@ -1,4 +1,22 @@
-<?php if (!function_exists('add_action')) exit;
+<?php 
+
+/**
+ * Odin Classes.
+ */
+// require_once get_template_directory() . '/core/classes/class-shortcodes.php';
+// require_once get_template_directory() . '/core/classes/class-thumbnail-resizer.php';
+require_once get_template_directory() . '/core/classes/class-theme-options.php';
+// require_once get_template_directory() . '/core/classes/class-options-helper.php';
+// require_once get_template_directory() . '/core/classes/class-post-type.php';
+// require_once get_template_directory() . '/core/classes/class-taxonomy.php';
+// require_once get_template_directory() . '/core/classes/class-metabox.php';
+// require_once get_template_directory() . '/core/classes/abstracts/abstract-front-end-form.php';
+// require_once get_template_directory() . '/core/classes/class-contact-form.php';
+// require_once get_template_directory() . '/core/classes/class-post-form.php';
+// require_once get_template_directory() . '/core/classes/class-user-meta.php';
+
+
+if (!function_exists('add_action')) exit;
 
 add_action('after_setup_theme', 'imobiliaria_setup_theme');
 
@@ -260,3 +278,177 @@ function about_us_load_widget() {
     register_widget( 'about_us_widget' );
 }
 add_action( 'widgets_init', 'about_us_load_widget' );
+
+
+
+/*-------------------------------------------*
+    Theme oprtions - Usando odin
+*------------------------------------------*/
+function odin_theme_settings() {
+
+    $settings = new Odin_Theme_Options(
+        'odin-settings', // Slug/ID of the Settings Page (Required)
+        'Informações do Site', // Settings page name (Required)
+        'manage_options' // Page capability (Optional) [default is manage_options]
+    );
+
+    $settings->set_tabs(
+        array(
+            array(
+                'id' => 'info_contact', // Slug/ID of the Settings tab (Required)
+                'title' => __( 'Informações', 'odin' ), // Settings tab title (Required)
+            ),
+        )
+    );
+
+    $settings->set_fields(
+        array('info_contact_fields_section' => array( // Slug/ID of the section (Required)
+                'tab'   => 'info_contact', // Tab ID/Slug (Required)
+                'title' => __( 'Informações de Contato', 'odin' ), // Section title (Required)
+                'fields' => array( // Section fields (Required)
+                    // Image logo.
+                    array(
+                        'id'          => 'logomarca_opts', // Required
+                        'label'       => __( 'Logomarca (logo)', 'odin' ), // Required
+                        'type'        => 'image', // Required
+                        'description' => __( 'Faça o upload da imagem de sua logomarca', 'odin' ), // Opcional
+                    ),
+
+                    // input tel.
+                    array(
+                        'id'          => 'tel_opts', // Required
+                        'label'       => __( 'Telefone', 'odin' ), // Required
+                        'type'        => 'input', // Required
+                        'attributes'  => array( // Optional (html input elements)
+                            'type' => 'tel',
+                            'placeholder' => __( '(00) 0000-0000' )
+                        )
+                    ),
+                    // input tel.
+                    array(
+                        'id'          => 'tel_adicional_opts', // Required
+                        'label'       => __( 'Telefone adicional', 'odin' ), // Required
+                        'type'        => 'input', // Required
+                        'description' => __( 'Adicione mais um telefone se for necessário', 'odin' ), // Optional
+                        'attributes'  => array( // Optional (html input elements)
+                            'type' => 'tel',
+                            'placeholder' => __( '(00) 0000-0000' )
+                        )
+                    ),
+                    // input email.
+                    array(
+                        'id'          => 'email_opts', // Required
+                        'label'       => __( 'Email de contato', 'odin' ), // Required
+                        'type'        => 'input', // Required
+                        // 'default'  => 'Default text', // Optional
+                        'attributes'  => array( // Optional (html input elements)
+                            'type' => 'email',
+                            'placeholder' => __( 'meuemail@meusite.com.br' ),
+                            'style'   => 'width: 250px;'
+                        )
+                    ),
+                    // Textarea - Endereço
+                    array(
+                        'id'          => 'end_opts', // Obrigatório
+                        'label'       => __( 'Endereço', 'odin' ), // Obrigatório
+                        'type'        => 'textarea', // Obrigatório
+                        'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+                            'placeholder' => __( 'Avenida Rio Branco, n° 68, apto 602, Rio de Janeiro - RJ - 20090-004' )
+                        ),
+                        'description' => __( 'Escreva seu endereço completo, inclusive com complemento e CEP', 'odin' ), // Opcional
+                    ),
+                    // url facebook
+                    array(
+                        'id'          => 'fb-link', // Required
+                        'label'       => __( 'Facebook (link)', 'odin' ), // Required
+                        'type'        => 'input', // Required
+                        'attributes'  => array( // Optional (html input elements)
+                            'type' => 'url',
+                            'placeholder' => __( 'http://www.facebok.com/minhapágina' ),
+                            'style'   => 'width: 350px;'
+                        )
+                    ),
+                    // url twitter
+                    array(
+                        'id'          => 'twt-link', // Required
+                        'label'       => __( 'Twitter (link)', 'odin' ), // Required
+                        'type'        => 'input', // Required
+                        'attributes'  => array( // Optional (html input elements)
+                            'type' => 'url',
+                            'placeholder' => __( 'http://www.twitter.com/minhapágina' ),
+                            'style'   => 'width: 350px;'
+                        )
+                    ),
+                    // url instagram
+                    array(
+                        'id'          => 'insta-link', // Required
+                        'label'       => __( 'Instagram (link)', 'odin' ), // Required
+                        'type'        => 'input', // Required
+                        'attributes'  => array( // Optional (html input elements)
+                            'type' => 'url',
+                            'placeholder' => __( 'http://www.instagram.com/minhapágina' ),
+                            'style'   => 'width: 350px;'
+                        )
+                    ),
+                    // url Linkedin
+                    array(
+                        'id'          => 'linked-link', // Required
+                        'label'       => __( 'Linkedin (link)', 'odin' ), // Required
+                        'type'        => 'input', // Required
+                        'attributes'  => array( // Optional (html input elements)
+                            'type' => 'url',
+                            'placeholder' => __( 'http://www.linkedin.com/minhapágina' ),
+                            'style'   => 'width: 350px;'
+                        )
+                    ),
+                    // url Youtube
+                    array(
+                        'id'          => 'yt-link', // Required
+                        'label'       => __( 'YouTube (link)', 'odin' ), // Required
+                        'type'        => 'input', // Required
+                        'attributes'  => array( // Optional (html input elements)
+                            'type' => 'url',
+                            'placeholder' => __( 'http://www.youtube.com/minhapágina' ),
+                            'style'   => 'width: 350px;'
+                        )
+                    ),
+                    // url Google plus
+                    array(
+                        'id'          => 'gplus-link', // Required
+                        'label'       => __( 'YouTube (link)', 'odin' ), // Required
+                        'type'        => 'input', // Required
+                        'attributes'  => array( // Optional (html input elements)
+                            'type' => 'url',
+                            'placeholder' => __( 'http://www.plus.google.com/minhapágina' ),
+                            'style'   => 'width: 350px;'
+                        )
+                    ),
+                    // url Pinterest
+                    array(
+                        'id'          => 'pint-link', // Required
+                        'label'       => __( 'Pinterest (link)', 'odin' ), // Required
+                        'type'        => 'input', // Required
+                        'attributes'  => array( // Optional (html input elements)
+                            'type' => 'url',
+                            'placeholder' => __( 'http://www.pinterest.com/minhapágina' ),
+                            'style'   => 'width: 350px;'
+                        )
+                    ),
+                )
+            )
+        )
+    );
+}
+
+add_action( 'init', 'odin_theme_settings', 1 );
+
+
+// Retirando o large size thumbnail
+// function wpmayor_filter_image_sizes( $sizes) {
+//     unset( $sizes['medium']);
+//     unset( $sizes['large']);
+     
+//     return $sizes;
+// }
+// add_filter('intermediate_image_sizes_advanced', 'wpmayor_filter_image_sizes');
+ 
