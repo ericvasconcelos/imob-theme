@@ -344,6 +344,7 @@ p {
 	margin-right: 5px;
 }
 .top-header .social a {
+	margin: 0 2px;
 	color: #cecece;
 }
 .top-header .social a:hover,
@@ -366,6 +367,15 @@ p {
 	display: block;
 	width: auto;
 	height: 45px;
+}
+.main-header a.logo span {
+	display: block;
+	width: auto;
+	height: 45px;
+	font-size: 40px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #000;
 }
 
 .main-header nav.menu-navigation {
@@ -856,6 +866,7 @@ p {
 .bot-footer .social-footer a {
 	color: #cecece;
 	font-size: 19px;
+	margin: 0 3px;
 }
 .bot-footer .back-top {
 	display: block;

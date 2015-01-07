@@ -47,22 +47,34 @@
         <div class="top-header">
             <div class="container">
                 <div class="contacts">
-                    <span class="email">
-                        <i class="icon-mail-alt"></i>
-                        <span><?php echo $theme_opts['email_opts']; ?></span>
-                    </span>
-                    <span class="tel">
-                        <i class="icon-phone"></i>
-                        <span><?php echo $theme_opts['tel_opts']; ?> 
-                            
-                            <?php
-                                if (isset($theme_opts['tel_adicional_opts'])) {
-                                    echo ' / ';
-                                    echo $theme_opts['tel_adicional_opts'];
-                                }
-                            ?> 
+                    
+                    <!-- Email header -->
+                    <?php if ($theme_opts['email_opts']) { ?>
+
+                        <span class="email">
+                            <i class="icon-mail-alt"></i>
+                            <span><?php echo $theme_opts['email_opts']; ?></span>
                         </span>
-                    </span>
+
+                    <?php } ?>
+                                        
+                    <!-- Telefone header -->
+                    <?php if ($theme_opts['tel_opts']) { ?>
+
+                        <span class="tel">
+                            <i class="icon-phone"></i>
+                            <span><?php echo $theme_opts['tel_opts']; ?> 
+                                
+                                <?php
+                                    if ($theme_opts['tel_adicional_opts']) {
+                                        echo ' / ' . $theme_opts['tel_adicional_opts'];
+                                    }
+                                ?> 
+                            </span>
+                        </span>
+
+                    <?php } ?>
+                    
                 </div><!-- /contacts-->
                 <div class="social-languages">
                     <div class="languages">
@@ -76,28 +88,31 @@
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/spain.png" alt="Spanish">
                         </a>
                     </div><!-- /languages -->
+
                     <nav class="social">
-                        <a href="<?php echo $theme_opts['fb-link'] ?>" class="Facebook">
-                            <i class="icon-facebook"></i>
-                        </a>
-                        <a href="<?php echo $theme_opts['twt-link'] ?>" class="Twitter">
-                            <i class="icon-twitter"></i>
-                        </a>
-                        <a href="<?php echo $theme_opts['insta-link'] ?>" class="Instagram">
-                            <i class="icon-instagram"></i>
-                        </a>
-                        <a href="<?php echo $theme_opts['linked-link'] ?>" class="LinkedIn">
-                            <i class="icon-linkedin"></i>
-                        </a>
-                        <a href="<?php echo $theme_opts['yt-link'] ?>" class="YouTube">
-                            <i class="icon-youtube"></i>
-                        </a>
-                        <a href="<?php echo $theme_opts['gplus-link'] ?>" class="Google Plus">
-                            <i class="icon-gplus"></i>
-                        </a>
-                        <a href="<?php echo $theme_opts['pint-link'] ?>" class="Pinterest">
-                            <i class="icon-pinterest"></i>
-                        </a>
+                        <!-- Redes sociais header -->
+                        <?php 
+                            if ($theme_opts['fb-link'])
+                            echo '<a href="' . $theme_opts['fb-link'] . '" class="facebook" title="Página no Facebook" target="_blank"><i class="icon-facebook"></i></a>';
+
+                            if ($theme_opts['twt-link'])
+                            echo '<a href="' . $theme_opts['twt-link'] . '" class="twitter" title="Página no Twitter" target="_blank"><i class="icon-twitter"></i></a>';
+
+                            if ($theme_opts['insta-link'])
+                            echo '<a href="' . $theme_opts['insta-link'] . '" class="instagram" title="Página no Instagram" target="_blank"><i class="icon-instagram"></i></a>';
+
+                            if ($theme_opts['linked-link'])
+                            echo '<a href="' . $theme_opts['linked-link'] . '" class="linkedin" title="Página no LinkedIn" target="_blank"><i class="icon-linkedin"></i></a>';
+
+                            if ($theme_opts['yt-link'])
+                            echo '<a href="' . $theme_opts['yt-link'] . '" class="youtube" title="Página no YouTube" target="_blank"><i class="icon-youtube"></i></a>';
+
+                            if ($theme_opts['gplus-link'])
+                            echo '<a href="' . $theme_opts['gplus-link'] . '" class="googleplus" title="Página no Google+" target="_blank"><i class="icon-gplus"></i></a>';
+
+                            if ($theme_opts['pint-link'])
+                            echo '<a href="' . $theme_opts['pint-link'] . '" class="pinterest" title="Página no Pinterest" target="_blank"><i class="icon-pinterest"></i></a>';
+                        ?>
                         
                     </nav><!-- /social -->
                 </div><!-- /social-languages -->
@@ -114,16 +129,20 @@
                     <span class="icon-bar"></span>
                 </button> -->
                 <a href="<?php echo get_site_url(); ?>/" class="logo">
-
                     <?php 
-                    $attachment_id = $theme_opts['logomarca_opts']; // attachment ID
-
-                    $image_attributes = wp_get_attachment_image_src( $attachment_id ); // returns an array
-                    if( $image_attributes ) {
-                    ?> 
-                    <img src="<?php echo $image_attributes[0]; ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>" alt="<?php echo $image_attributes[3]; ?>">
-                    <?php } ?>
+                        if ($theme_opts['logomarca_opts']) {
+                            echo wp_get_attachment_image( 
+                            $theme_opts['logomarca_opts'],
+                            $default_attr = array(
+                                    'alt'   => trim(strip_tags( get_post_meta($attachment_id, '_wp_attachment_image_alt', true) )),
+                                )
+                            ); 
+                        } else {
+                            echo "<span>Logo</span>";
+                        }
+                    ?>
                 </a>
+
                 <nav class="menu-navigation" role="navigation">
                     <?php
                         wp_nav_menu(

@@ -25,32 +25,39 @@
             <div class="row">
                 <div class="col-8">
                     <address>
-                        <?php echo $theme_opts['end_opts'] ?>
+                        <!-- Email header -->
+                        <?php if ($theme_opts['end_opts'] ) { 
+
+                            echo $theme_opts['end_opts'];
+
+                        } ?>
                     </address>
                 </div><!-- /col-6 -->
                 <div class="col-3">
                     <nav class="social-footer">
-                        <a href="<?php echo $theme_opts['fb-link'] ?>" class="Facebook">
-                            <i class="icon-facebook"></i>
-                        </a>
-                        <a href="<?php echo $theme_opts['twt-link'] ?>" class="Twitter">
-                            <i class="icon-twitter"></i>
-                        </a>
-                        <a href="<?php echo $theme_opts['insta-link'] ?>" class="Instagram">
-                            <i class="icon-instagram"></i>
-                        </a>
-                        <a href="<?php echo $theme_opts['linked-link'] ?>" class="LinkedIn">
-                            <i class="icon-linkedin"></i>
-                        </a>
-                        <a href="<?php echo $theme_opts['yt-link'] ?>" class="YouTube">
-                            <i class="icon-youtube"></i>
-                        </a>
-                        <a href="<?php echo $theme_opts['gplus-link'] ?>" class="Google Plus">
-                            <i class="icon-gplus"></i>
-                        </a>
-                        <a href="<?php echo $theme_opts['pint-link'] ?>" class="Pinterest">
-                            <i class="icon-pinterest"></i>
-                        </a>
+                        <!-- Redes sociais footer -->
+                        <?php 
+                            if ($theme_opts['fb-link'])
+                            echo '<a href="' . $theme_opts['fb-link'] . '" class="facebook" title="Página no Facebook" target="_blank"><i class="icon-facebook"></i></a>';
+
+                            if ($theme_opts['twt-link'])
+                            echo '<a href="' . $theme_opts['twt-link'] . '" class="twitter" title="Página no Twitter" target="_blank"><i class="icon-twitter"></i></a>';
+
+                            if ($theme_opts['insta-link'])
+                            echo '<a href="' . $theme_opts['insta-link'] . '" class="instagram" title="Página no Instagram" target="_blank"><i class="icon-instagram"></i></a>';
+
+                            if ($theme_opts['linked-link'])
+                            echo '<a href="' . $theme_opts['linked-link'] . '" class="linkedin" title="Página no LinkedIn" target="_blank"><i class="icon-linkedin"></i></a>';
+
+                            if ($theme_opts['yt-link'])
+                            echo '<a href="' . $theme_opts['yt-link'] . '" class="youtube" title="Página no YouTube" target="_blank"><i class="icon-youtube"></i></a>';
+
+                            if ($theme_opts['gplus-link'])
+                            echo '<a href="' . $theme_opts['gplus-link'] . '" class="googleplus" title="Página no Google+" target="_blank"><i class="icon-gplus"></i></a>';
+
+                            if ($theme_opts['pint-link'])
+                            echo '<a href="' . $theme_opts['pint-link'] . '" class="pinterest" title="Página no Pinterest" target="_blank"><i class="icon-pinterest"></i></a>';
+                        ?>
                     </nav><!-- /social -->
                 </div><!-- /col-3 -->
                 <div class="col-1">
