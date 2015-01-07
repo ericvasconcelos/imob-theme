@@ -3,11 +3,16 @@ jQuery(document).ready(function ($) {
 
     var imob = {
 
-        
+        //ScrollTop click button
+        goTop: function () {
+            $('.back-top').click(function(){
+                $('html, body').animate({scrollTop : 0},800);
+                return false;
+            });
+        }
 
     }
-
-    
+    imob.goTop();
 
     /* --------------------------------------------
      Ir para o topo
@@ -20,22 +25,8 @@ jQuery(document).ready(function ($) {
         }
     });
 
-    $('.go-top').click(function (event) {
-        event.preventDefault();
-        $('html, body').animate({scrollTop: 0}, 1000);
-    });
-
     /* --------------------------------------------
-     Animação de ancora do menu
-     -------------------------------------------- */
-    $('.main-logo, .nav li a,.arrow-down-home').click(function () {
-        var alvo = $(this).attr('href').split('#').pop();
-        $('html, body').animate({scrollTop: $('#' + alvo).offset().top}, 500);
-        return false;
-    });
-
-    /* --------------------------------------------
-     Adivionar ou remover classe(s) no menu
+     Adicionar ou remover classe(s) no menu
      -------------------------------------------- */
     $('.nav li a').first().addClass("active-menu");
     $('.nav li a').on('click', function () {

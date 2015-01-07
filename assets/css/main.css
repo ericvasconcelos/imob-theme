@@ -853,15 +853,27 @@ p {
 	width: 100%;
 	height: auto;
 }
-.bot-footer address {
-	line-height: 60px;
-	font-size: 14px;
-	color: #c1c7c7;
-}
 .bot-footer .social-footer {
 	float: right;
 	height: 60px;
 	line-height: 60px;
+}
+.bot-footer a.email-corp {
+	margin: 0 auto 10px auto;
+	padding-left: 2px;
+	width: 70%;
+	text-align: center;
+	font-size: 14px;
+	line-height: 60px;
+	color: #cecece;
+	-webkit-transition: all 0.4s linear;
+	-moz-transition: all 0.4s linear;
+	-ms-transition: all 0.4s linear;
+	-o-transition: all 0.4s linear;
+	transition: all 0.4s linear;
+}
+.bot-footer a.email-corp:hover {
+	opacity: 0.8;
 }
 .bot-footer .social-footer a {
 	color: #cecece;
@@ -883,6 +895,13 @@ p {
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
+}
+.bot-footer address {
+	margin: 0 auto 10px auto;
+	width: 70%;
+	text-align: center;
+	font-size: 14px;
+	color: #c1c7c7;
 }
 .bot-footer .copyright {
 	width: 70%;

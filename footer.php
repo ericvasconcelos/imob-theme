@@ -23,17 +23,13 @@
     <div class="bot-footer cf">
         <div class="container">
             <div class="row">
-                <div class="col-8">
-                    <address>
-                        <!-- Email header -->
-                        <?php if ($theme_opts['end_opts'] ) { 
-
-                            echo $theme_opts['end_opts'];
-
-                        } ?>
-                    </address>
+                <div class="col-7">
+                    <a href="<?php echo get_site_url(); ?>/webmail" title="Acessar email" class="email-corp" target="_blank">
+                        <i class="icon-mail-alt"></i>
+                        Acessar email corporativo
+                    </a>
                 </div><!-- /col-6 -->
-                <div class="col-3">
+                <div class="col-4">
                     <nav class="social-footer">
                         <!-- Redes sociais footer -->
                         <?php 
@@ -68,9 +64,21 @@
             </div><!-- /row -->
             <div class="row">
                 <div class="col-12">
+                    <address>
+                        <!-- Email header -->
+                        <?php if ($theme_opts['end_opts'] ) { 
+
+                            echo $theme_opts['end_opts'];
+
+                        } ?>
+                    </address>
+                </div>
+            </div><!-- /row -->
+            <div class="row">
+                <div class="col-12">
                     <p class="copyright">&copy; <?php echo date( 'Y' ); ?>  <?php bloginfo( 'name' ); ?> - Todos os direitos reservados.</p>
                 </div>
-            </div>
+            </div><!-- /row -->
         </div><!-- /container -->
     </div><!-- /bot-footer -->
     
