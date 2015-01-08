@@ -763,7 +763,7 @@ p {
 	text-decoration: underline;
 }
 
-/* Tópicos recentes */
+/* Pesquisa no site */
 .widget_search span {
 	display: none;
 }
@@ -788,6 +788,18 @@ p {
 } 
 
 /* Form contato */
+.wpcf7 p {
+	display: table;
+	position: relative;
+	margin-bottom: 10px;
+}
+.wpcf7 i {
+	position: absolute;
+	z-index: 2;
+	top: 10px;
+	left: 10px;
+	color: #c1c5c6;
+}
 .wpcf7 input[type=text]::-webkit-input-placeholder,
 .wpcf7 input[type=email]::-webkit-input-placeholder,
 .wpcf7 input[type=tel]::-webkit-input-placeholder,
@@ -833,19 +845,150 @@ p {
 	text-indent: 31px;
 	height: 100px;
 }
-.wpcf7 p {
-	position: relative;
+.wpcf7 input[type=submit] {
+	float: left;
+	margin-top: 0;
+}
+.wpcf7 .ajax-loader {
+	display: block;
+	float: left;
+	margin-right: 5px;
+}
+.wpcf7 .mailpoetsignup {
+	display: block;
+	float: left;
+}
+.wpcf7 .mailpoetsignup input[type="checkbox"] {
+	text-align: center;
+	vertical-align: middle;
+	line-height: 10px;
+	clear: none;
+	cursor: pointer;
+	outline: 0;
+	display: inline-block;
+	border: 1px solid #e3e3e3;
+	background: #fff;
+	margin: -2px 4px 0 0;
+	width: 16px;
+	height: 16px;
+	-webkit-appearance: none;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+	-webkit-transition: .05s border-color ease-in-out;
+	transition: .05s border-color ease-in-out;
+}
+.wpcf7 .mailpoetsignup input[type="checkbox"]:checked:before {
+ 	content     : '✓';
+	display     : block;
+	color       : #666;
+	font-size   : 14px;
+	line-height : 14px;
+	text-shadow : 0 0 0.0714em #666;
+	font-weight : bold;
+}
+.wpcf7 .mailpoetsignup + label {
+	width: 155px;
+	height: 10px;
+	display: block;
+	float: left;
+	font-size: 12px;
+	color: #313131;
+	line-height: 18px;
+	cursor: pointer;
+}
+
+/* Mensagens do formulário de contato */
+.wpcf7 span[role="alert"] {
+	font-size: 12px;
+	margin-top: 3px;
+}
+.wpcf7 .wpcf7-validation-errors,
+.wpcf7 div.wpcf7-mail-sent-ng {
+	margin: 20px 0 0 0;
+	padding: 5px 10px;
+	border: 1px solid red;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+
+/* Newsletter */
+.widget_wysija .news-subtitle {
+	font-size: 13px;
+	color: #313131;
+	line-height: 18px;
 	margin-bottom: 10px;
 }
-.wpcf7 i {
-	position: absolute;
-	z-index: 2;
-	top: 10px;
-	left: 10px;
-	color: #c1c5c6;
+.widget_wysija .wysija-paragraph {
+	margin-bottom: 10px;
+	position: relative;
+}
+.widget_wysija input[type=text] {
+	height: 36px;
+	padding-left: 10px;
+}
+.widget_wysija input[type=text]:focus {
+	border-color: #313131;
+}
+.widget_wysija input[type=text]::-webkit-input-placeholder { /* WebKit browsers */
+    font-style: italic;
+}
+.widget_wysija input[type=text]:-moz-placeholder { /* WebKit browsers */
+    font-style: italic;
+}
+.widget_wysija input[type=text]::-moz-placeholder { /* WebKit browsers */
+    font-style: italic;
+}
+.widget_wysija input[type=text]:-ms-input-placeholder { /* WebKit browsers */
+    font-style: italic;
 }
 
-
+.widget_wysija .wysija-paragraph > label {
+	display: block;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #313131;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	font-weight: bold;
+}
+.widget_wysija .wysija-paragraph .wysija-radio-label {
+	text-transform: initial;
+	margin-bottom: 10px;
+	padding-top: 0px;
+	font-weight: normal;
+}
+.widget_wysija .wysija-paragraph .wysija-radio-label input[type="radio"] {
+	text-align: center;
+	vertical-align: middle;
+	line-height: 10px;
+	clear: none;
+	cursor: pointer;
+	outline: 0;
+	display: inline-block;
+	border: 1px solid #e3e3e3;
+	background: #fff;
+	margin: -2px 6px 0 0;
+	width: 16px;
+	height: 16px;
+	-webkit-appearance: none;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	-webkit-transition: .05s border-color ease-in-out;
+	transition: .05s border-color ease-in-out;
+}
+.widget_wysija .wysija-paragraph .wysija-radio-label input[type="radio"]:checked:before {
+	content: "";
+	display: block;
+	margin: 2px 0 0 2px;
+	width: 10px;
+	height: 10px;
+	background: #666;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
 
 /* Bot-footer */
 .bot-footer {
