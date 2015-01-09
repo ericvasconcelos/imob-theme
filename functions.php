@@ -468,6 +468,17 @@ function odin_theme_settings() {
                             'style'   => 'width: 350px;'
                         )
                     ),
+                    array(
+                        'id'    => 'zopim', // Obrigatório
+                        'label' => __( 'Zopim - chat online', 'odin' ), // Obrigatório
+                        'type'        => 'textarea', // Obrigatório
+                        'attributes'  => array( // Opcional (atributos para input HTML/HTML5)
+                            'placeholder' => __( 'Cole seu código aqui' ),
+                            'cols'       => '80',
+                            'rows'      => '10'
+                        ),
+                        'description' => __( 'Coloque aqui o código do seu zopim. Caso ainda não tenha se cadastrado, <a href="https://www.zopim.com/" target="_blank">acesse aqui e se cadastre</a>', 'odin' ) // Opcional
+                    ),
                 )
             )
         )

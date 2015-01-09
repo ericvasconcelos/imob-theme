@@ -65,7 +65,7 @@
             <div class="row">
                 <div class="col-12">
                     <address>
-                        <!-- Email header -->
+                        <!-- Email footer -->
                         <?php if ($theme_opts['end_opts'] ) { 
 
                             echo $theme_opts['end_opts'];
@@ -85,5 +85,12 @@
 </footer>
 
 <?php wp_footer(); ?>
+
+<!-- Zopim chat online -->
+<?php if ($theme_opts['zopim'] ) { 
+
+    echo $theme_opts['zopim'];
+
+} ?>
 </body>
 </html>
