@@ -15,11 +15,45 @@ require_once get_template_directory() . '/core/classes/class-theme-options.php';
 // require_once get_template_directory() . '/core/classes/class-post-form.php';
 // require_once get_template_directory() . '/core/classes/class-user-meta.php';
 
+add_action('admin_notices', 'showAdminMessages');
+
+function showAdminMessages()
+{
+    $plugin_messages = array();
+
+    include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+
+    // SEO by Yoast
+    if(!is_plugin_active( 'wordpress-seo/wp-seo.php' )) {
+        $plugin_messages[] = 'Esse tema requer que você instale o plugin <a href="' . get_site_url() . '/wp-admin/update.php?action=install-plugin&plugin=wordpress-seo&_wpnonce=7dbe669aaa">Wordpress SEO by Yoast</a>.';
+    }
+    // Contact form 7
+    if(!is_plugin_active( 'contact-form-7/wp-contact-form-7.php' )) {
+        $plugin_messages[] = 'Esse tema requer que você instale o plugin <a href="' . get_site_url() . '/wp-admin/update.php?action=install-plugin&plugin=wordpress-seo&_wpnonce=7dbe669aaa">Contact form 7</a>.';
+    }
+    // Wysija Newsletter
+    if(!is_plugin_active( 'wysija-newsletters/index.php' )) {
+        $plugin_messages[] = 'Esse tema requer que você instale o plugin <a href="' . get_site_url() . '/wp-admin/update.php?action=install-plugin&plugin=wordpress-seo&_wpnonce=7dbe669aaa">Wysija Newsletter</a>.';
+    }
+    // 
+
+    if(count($plugin_messages) > 0) {
+        echo '<div id="message" class="error">';
+
+            foreach($plugin_messages as $message)
+            {
+                echo '<p><strong>'.$message.'</strong></p>';
+            }
+
+        echo '</div>';
+    }
+}
+
+
 
 if (!function_exists('add_action')) exit;
 
 add_action('after_setup_theme', 'imobiliaria_setup_theme');
-
 
 function imobiliaria_setup_theme()
 {

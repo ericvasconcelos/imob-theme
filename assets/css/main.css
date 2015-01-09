@@ -990,6 +990,54 @@ p {
 	border-radius: 50%;
 }
 
+/* Aviso erro newsletter*/
+
+.formError {
+	top: 41px !important;
+	left: 15% !important;
+}
+.formError .formErrorContent:after{
+	content: '';
+	display: block;
+	position: absolute;
+	top: -5px;
+	left: 50%;
+	margin-left: -5px;
+	width: 0; 
+	height: 0; 
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #ff4c35;
+}
+.formError .formErrorContent {
+	left: 0;
+	max-width: 200px;
+	width: auto;
+	height: auto;
+	padding: 5px 8px;
+	background: none repeat scroll 0 0 #ff4c35;
+	color: #fff;
+	text-align: center;
+	border-radius: 4px;
+	border: none;
+	font-family: 'Open Sans', sans-serif;
+}
+.wysija-msg {
+	font-size: 12px;
+	margin-bottom: 20px;
+}
+.wysija-msg .updated {
+	margin: 20px 0 0 0;
+	padding: 5px 10px;
+	border: 1px solid #313131;
+	font-size: 12px;
+	line-height: 16px;
+	background-color: transparent;
+}
+.wysija-msg .error,
+.wysija-msg .xdetailed-errors {
+	border: none;
+}
 /* Bot-footer */
 .bot-footer {
 	background-color: #212429;
