@@ -74,15 +74,22 @@ function imobiliaria_setup_theme()
 function imobiliaria_scripts() {   
     $template_url = get_template_directory_uri();
 
-    // Main jQuery.
+    // Main jQuery
     wp_enqueue_script('imobiliaria-jquery', $template_url . '/assets/js/jquery.min.js', array(), null, true );
 
-    // Main JS.
+    // Owl Carousel JS 2
+    wp_enqueue_script('imobiliaria-owlcarousel', $template_url . '/assets/js/owl.carousel.min.js' , array(), null, true );
+
+    // Main JS
     wp_enqueue_script('imobiliaria-mainjs', $template_url . '/assets/js/main.js' , array(), null, true );
 
-    // Main CSS.
-    wp_enqueue_style('imobiliaria-style-main', $template_url . '/assets/css/main.css', true, 'all');
 
+    // Owl Carousel CSS 2
+    wp_enqueue_style('imobiliaria-style-main', $template_url . '/assets/css/owl.carousel.css', true, 'all');
+
+    // Main CSS
+    wp_enqueue_style('imobiliaria-style-main', $template_url . '/assets/css/main.css', true, 'all');
+    
 }
 
 /*-------------------------------------------*
