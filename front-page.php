@@ -3,17 +3,47 @@
 
 	<section id="front-page">
 		<div class="container">
-			<section id="carousel">
-				<div class="item-img">Carrossel</div>
-				<div class="nav-carousel">
-					<span class="c-previous">
-						<i class="icon-arrow-left"></i>
-					</span>
-					<span class="c-next">
-						<i class="icon-arrow-right"></i>
-					</span>
-				</div>
+			<section id="carousel" class="owl-carousel">
+				
+				<?php 
+					$args = array( 'post_type' => 'carrossel', 'posts_per_page' => 4 );
+					$loop = new WP_Query( $args );
+					while ( $loop->have_posts() ) : $loop->the_post(); ?>
+
+						<div class="item">
+
+							<a href="<?php echo get_post_meta( $post->ID,'url', true ); ?>" target="_blank">
+								<?php 
+									$img_carousel = get_post_meta( $post->ID,'carousel_image', true );
+
+									echo wp_get_attachment_image(
+										$img_carousel, 
+										array(720,373)
+									);
+								?>
+							</a>
+							<?php echo get_post_meta( $post->ID,'titulo', true ); ?>
+							<?php echo get_post_meta( $post->ID,'subtitulo', true ); ?>
+			            </div>
+						
+				<?php endwhile; ?>
+				
+				
+
+				
 			</section><!-- /carousel -->
+			<!-- 
+			<div class="item-img">Carrossel</div>
+			<div class="nav-carousel">
+				<span class="c-previous">
+					<i class="icon-arrow-left"></i>
+				</span>
+				<span class="c-next">
+					<i class="icon-arrow-right"></i>
+				</span>
+			</div> -->
+
+
 			<section id="advanced-search">
 				<form action="post" class="cf">
 					<div class="left-side">

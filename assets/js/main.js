@@ -1,6 +1,17 @@
 jQuery(document).ready(function ($) {
     'use strict';
 
+    $('.owl-carousel').owlCarousel({
+        items:1,
+        slideSpeed: 400,
+        paginationSpeed: 400,
+        navigation: true,
+        navigationText : ["", ""],
+        pagination: false,
+        autoPlay: true,
+        transitionStyle : "fade"
+    });
+
     var imob = {
 
         //ScrollTop click button

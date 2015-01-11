@@ -85,8 +85,8 @@ function imobiliaria_scripts() {
 
 
     // Owl Carousel CSS 2
-    wp_enqueue_style('imobiliaria-style-main', $template_url . '/assets/css/owl.carousel.css', true, 'all');
-
+    wp_enqueue_style('imobiliaria-owlcarousel', $template_url . '/assets/css/owl.carousel.css', true, 'all');
+    
     // Main CSS
     wp_enqueue_style('imobiliaria-style-main', $template_url . '/assets/css/main.css', true, 'all');
     
@@ -513,15 +513,106 @@ add_action( 'init', 'odin_theme_settings', 1 );
 
     $video->set_labels(
         array(
-            'menu_name' => __( 'Carrossel', 'odin' )
+            'name'               => __( 'Carrosseis', 'odin' ),
+            'singular_name'      => __( 'Carrossel', 'odin' ),
+            'view_item'          => __( 'Ver Carrossel', 'odin' ),
+            'edit_item'          => __( 'Editar Carrossel', 'odin' ),
+            'search_items'       => __( 'Procurar Carrossel', 'odin' ),
+            'update_item'        => __( 'Atualizar Carrossel', 'odin' ),
+            'parent_item_colon'  => __( 'Categoria mãe Carrossel:', 'odin' ),
+            'menu_name'          => __( 'Carrossel', 'odin' ),
+            'add_new'            => __( 'Adicionar Novo', 'odin' ),
+            'add_new_item'       => __( 'Adicionar Novo Carrossel', 'odin' ),
+            'new_item'           => __( 'Novo Carrossel', 'odin' ),
+            'all_items'          => __( 'Todos os Carrosseis', 'odin' ),
+            'not_found'          => __( 'Nenhum Carrossel encontrado', 'odin' ),
+            'not_found_in_trash' => __( 'Nenhum Carrossel encontrado no lixo', 'odin' )
         )
     );
 
     $video->set_arguments(
         array(
-            'supports' => array( 'title' )
+            'hierarchical'        => false,
+            'supports'            => array( 'title'),
+            'public'              => false,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => false,
+            'publicly_queryable'  => false,
+            'exclude_from_search' => false,
+            'has_archive'         => false,
+            'query_var'           => true,
+            'can_export'          => true,
+            'rewrite'             => true,
+            'capability_type'     => 'post'
         )
     );
 }
 
 add_action( 'init', 'odin_carousel_cpt', 1 );
+
+// Include the Odin_Metabox class.
+require_once get_template_directory() . '/core/classes/class-metabox.php';
+
+function carrossel_metabox() {
+
+    $videos_metabox = new Odin_Metabox(
+        'opcoes-carrossel', // Slug/ID of the Metabox (Required)
+        'Opções do Carrossel', // Metabox name (Required)
+        'carrossel', // Slug of Post Type (Optional)
+        'normal', // Context (options: normal, advanced, or side) (Optional)
+        'high' // Priority (options: high, core, default or low) (Optional)
+    );
+
+    $videos_metabox->set_fields(
+        array(
+            /**
+             * Default input examples.
+             */
+
+            // Image field.
+            array(
+                'id'          => 'carousel_image', // Required
+                'label'       => __( 'Imagem', 'odin' ), // Required
+                'type'        => 'image', // Required
+                'description' => __( 'Use uma imagem do tamanho 720x373px', 'odin' ), // Optional
+
+                // 'attributes'  => array( // Optional 
+                //     'width'  => '720',
+                //     'height' => '373'
+                // )
+            ),
+
+            // HTML5 url field.
+            array(
+                'id'          => 'url', // Required
+                'label'       => __( 'Link (url)', 'odin' ), // Required
+                'type'        => 'input', // Required
+                'placeholder' => __( 'http://www.minhpagina.com/link-desejado' ),
+                'description' => __( 'Colocar o link para qual será redirecionado ao clicar na imagem', 'odin' ), // Optional
+                'attributes'  => array( // Optional (html input elements)
+                    'type' => 'url'
+                )
+            ),
+
+            // Text Field.
+            array(
+                'id'         => 'titulo', // Required
+                'label'      => __( 'Título', 'odin' ), // Required
+                'type'       => 'text', // Required
+                'description' => __( 'Título que aparecerá na imagem do carrossel', 'odin' ) // Optional
+            ),
+
+            // Text Field.
+            array(
+                'id'         => 'subtitulo', // Required
+                'label'      => __( 'Subtítulo', 'odin' ), // Required
+                'type'       => 'text', // Required
+                'description' => __( 'Subtítilo que aparecerá na imagem do carrossel', 'odin' ) // Optional
+            ),
+
+        )
+    );
+}
+
+add_action( 'init', 'carrossel_metabox', 1 );
