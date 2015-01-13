@@ -1101,3 +1101,19 @@ p {
 	font-size: 12px;
 	color: #c1c7c7;
 }
+
+
+/* ---------------------------------*
+	Language 
+*----------------------------------*/
+
+#lang_sel_list a, 
+#lang_sel_list a:visited {
+	background: transparent !important;
+	line-height: 0 !important;
+	padding-left: 0px !important;
+}
+#lang_sel_list img.iclflag {
+	width: auto !important;
+	height: auto !important;
+}

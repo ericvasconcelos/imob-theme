@@ -128,7 +128,7 @@ add_shortcode('users', 'imobiliaria_users');
 function imobiliaria_nav_menus()
 {
     register_nav_menu('primary_navi', 'Menu do cabeçalho.');
-    register_nav_menu('secondary_navi', 'Secondary Menu');
+    // register_nav_menu('secondary_navi', 'Secondary Menu');
 }
 
 /*-------------------------------------------*

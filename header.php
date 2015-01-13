@@ -78,7 +78,7 @@
                 </div><!-- /contacts-->
                 <div class="social-languages">
                     <div class="languages">
-                        <a class="lang-port" href="#">
+                        <!-- <a class="lang-port" href="#">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/brazil.png" alt="Portuguese - Brazil">
                         </a>
                         <a class="lang-eng" href="#">
@@ -86,7 +86,8 @@
                         </a>
                         <a class="lang-spa" href="#">
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/spain.png" alt="Spanish">
-                        </a>
+                        </a> -->
+                        <?php do_action('icl_language_selector'); ?>
                     </div><!-- /languages -->
 
                     <nav class="social">
