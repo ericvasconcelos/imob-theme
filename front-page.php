@@ -8,7 +8,13 @@
 				<?php 
 					$args = array( 'post_type' => 'carrossel', 'posts_per_page' => 4 );
 					$loop = new WP_Query( $args );
-					while ( $loop->have_posts() ) : $loop->the_post(); ?>
+					while ( $loop->have_posts() ) : $loop->the_post(); 
+
+						$titulo 		= get_post_meta( $post->ID,'titulo', true );
+						$subtitulo 		= get_post_meta( $post->ID,'subtitulo', true );
+						$cor_titulo 	= get_post_meta( $post->ID,'cor_titulo', true );
+						$fundo_titulo 	= get_post_meta( $post->ID,'fundo_titulo', true );
+					?>
 
 						<div class="item">
 
@@ -22,16 +28,14 @@
 									);
 								?>
 							</a>
-							<?php echo get_post_meta( $post->ID,'titulo', true ); ?>
-							<?php echo get_post_meta( $post->ID,'subtitulo', true ); ?>
+							<p class="tit" style="color: <?php echo $cor_titulo ?>; background-color:  <?php echo $fundo_titulo ?>;"><?php echo $titulo ?></p>
+							<p class="subtit" style="color: <?php echo $cor_titulo ?>; background-color:  <?php echo $fundo_titulo ?>;"><?php echo $subtitulo ?></p>
 			            </div>
 						
 				<?php endwhile; ?>
 				
-				
-
-				
 			</section><!-- /carousel -->
+			
 			<!-- 
 			<div class="item-img">Carrossel</div>
 			<div class="nav-carousel">

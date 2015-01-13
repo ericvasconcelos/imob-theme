@@ -88,9 +88,25 @@
 
 <!-- Zopim chat online -->
 <?php if ($theme_opts['zopim'] ) { 
-
     echo $theme_opts['zopim'];
-
 } ?>
+
+
+
+<!-- Carrossel -->
+<script>
+    $('.owl-carousel').owlCarousel({
+        items:1,
+        slideSpeed: 400,
+        paginationSpeed: 400,
+        navigation: true,
+        navigationText : ["", ""],
+        pagination: false,
+        autoPlay: true,
+        transitionStyle : "fade"
+    });
+
+</script>
+
 </body>
 </html>

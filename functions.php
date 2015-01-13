@@ -9,7 +9,7 @@ require_once get_template_directory() . '/core/classes/class-theme-options.php';
 // require_once get_template_directory() . '/core/classes/class-options-helper.php';
 require_once get_template_directory() . '/core/classes/class-post-type.php';
 // require_once get_template_directory() . '/core/classes/class-taxonomy.php';
-// require_once get_template_directory() . '/core/classes/class-metabox.php';
+require_once get_template_directory() . '/core/classes/class-metabox.php';
 // require_once get_template_directory() . '/core/classes/abstracts/abstract-front-end-form.php';
 // require_once get_template_directory() . '/core/classes/class-contact-form.php';
 // require_once get_template_directory() . '/core/classes/class-post-form.php';
@@ -70,7 +70,9 @@ function imobiliaria_setup_theme()
 
 }
 
-
+/*-------------------------------------------*
+        Inserir scripts e styles
+*------------------------------------------*/
 function imobiliaria_scripts() {   
     $template_url = get_template_directory_uri();
 
@@ -236,7 +238,7 @@ function remove_some_widgets() {
 add_action( 'widgets_init', 'remove_some_widgets' );
 
 /*-------------------------------------------*
-    Criado um widget
+    Widget - Sobre Você/Empresa
 *------------------------------------------*/
 class about_us_widget extends WP_Widget {
 
@@ -292,7 +294,7 @@ public function form( $instance ) {
 ?>
 <p>
     <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Título:'); ?></label>
-    <input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:100%;" />
+    <input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $title; ?>" style="width:100%;" />
 
     <label for="<?php echo $this->get_field_id( 'descricao' ); ?>"><?php _e( 'Descrição:' ); ?></label> 
     <textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id( 'descricao' ); ?>" name="<?php echo $this->get_field_name( 'descricao' ); ?>">
@@ -306,8 +308,8 @@ public function form( $instance ) {
 // Atualizando o widget substituindo as antigas instâncias com as novas
     public function update( $new_instance, $old_instance ) {
         $instance = array();
-        $instance['descricao'] = ( ! empty( $new_instance['descricao'] ) ) ? strip_tags( $new_instance['descricao'] ) : '';
-        $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+        $instance['descricao'] = ( !empty( $new_instance['descricao'] ) ) ? strip_tags( $new_instance['descricao'] ) : '';
+        $instance['title'] = ( !empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
 
         return $instance;
     }
@@ -321,9 +323,109 @@ function about_us_load_widget() {
 add_action( 'widgets_init', 'about_us_load_widget' );
 
 
+/*-------------------------------------------*
+    Widget - Facebook Like Box
+*------------------------------------------*/
+class fb_likebox_widget extends WP_Widget {
+
+    function __construct() {
+        parent::__construct(
+            // Base ID of your widget
+            'fb_likebox_widget', 
+
+            // Widget name will appear in UI
+            __('Facebook Like Box (Caixa com pessoas que curtiram)', 'text_domain'), 
+
+            // Widget description
+            array( 'description' => __( 'Tenha em sua página as pessoas que já curtiram sua página no facebook', 'text_domain' ), ) 
+        );
+    }
+
+    // Criando o Front-end do Widget
+    public function widget( $args, $instance ) {
+
+        $url_page    = apply_filters( 'widget_url_page', $instance['url_page'] );
+        $show_faces  = $instance['show_faces'] ? 'true' : 'false';
+        $show_border = $instance['show_border'] ? 'true' : 'false';
+
+        // Tag de abertura 
+        echo $args['before_widget'];
+        echo '<div class="fb-likebox">';
+
+            // Título
+            echo $args['before_title'] . 'Curta nossa página no Facebook' . $args['after_title'];
+
+            // frame com a url da página
+            if ( ! empty( $url_page ) )
+            echo '<div class="fb-like-box" data-href="' . $url_page . '" data-width="278" data-height="310" data-colorscheme="light" data-show-faces="' . $show_faces . '" data-header="false" data-stream="false" data-show-border="' . $show_border . '"></div>';
+            
+            echo '<div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                      var js, fjs = d.getElementsByTagName(s)[0];
+                      if (d.getElementById(id)) return;
+                      js = d.createElement(s); js.id = id;
+                      js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&appId=258827747647316&version=v2.0";
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }(document, "script", "facebook-jssdk"));</script>
+                ';
+        
+        echo '</div>';
+        // Tag de fechamento
+        echo $args['after_widget'];
+    }
+
+
+        
+    // Widget Back-end 
+    public function form( $instance ) {
+        $url_page = ! empty( $instance['url_page'] ) ? $instance['url_page'] : __( '', 'text_domain' );
+        $show_faces = isset( $instance['show_faces'] ) ? (bool) $instance['show_faces'] : false;
+        $show_border = isset( $instance['show_border'] ) ? (bool) $instance['show_border'] : false;
+        ?>
+        
+        <!-- Link do facebook -->
+        <p>
+            <label for="<?php echo $this->get_field_id( 'url_page' ); ?>"><?php _e( 'Link:' ); ?></label> 
+            <input class="widefat" id="<?php echo $this->get_field_id( 'url_page' ); ?>" name="<?php echo $this->get_field_name( 'url_page' ); ?>" type="text" value="<?php echo esc_attr( $url_page ); ?>">
+        </p>
+        
+        <!-- Mostrar rostos dos amigos - checkbox -->
+        <p>
+            <input class="checkbox" type="checkbox" <?php checked( $show_faces ); ?> id="<?php echo $this->get_field_id( 'show_faces' ); ?>" name="<?php echo $this->get_field_name( 'show_faces' ); ?>" /> 
+            <label for="<?php echo $this->get_field_id( 'show_faces' ); ?>"><?php _e('Mostrar rostos dos amigos?', 'example'); ?></label>
+        </p>
+
+        <!-- Retirar borda do Likebox - checkbox -->
+        <p>
+            <input class="checkbox" type="checkbox" <?php checked( $show_border ); ?> id="<?php echo $this->get_field_id( 'show_border' ); ?>" name="<?php echo $this->get_field_name( 'show_border' ); ?>" /> 
+            <label for="<?php echo $this->get_field_id( 'show_border' ); ?>"><?php _e('Colocar borda do Likebox?', 'example'); ?></label>
+        </p>
+
+        <?php 
+    }
+    
+    public function update( $new_instance, $old_instance ) {
+        $instance = array();
+        $instance['url_page']    = ( ! empty( $new_instance['url_page'] ) ) ? strip_tags( $new_instance['url_page'] ) : '';
+        $instance['show_faces']  = isset( $new_instance['show_faces'] ) ? (bool) $new_instance['show_faces'] : false;
+        $instance['show_border'] = isset( $new_instance['show_border'] ) ? (bool) $new_instance['show_border'] : false;
+
+        return $instance;
+    }
+
+
+} // fim da class fb_likebox_widget
+
+// Registrando e rodando o widget
+function fb_likebox_load_widget() {
+    register_widget( 'fb_likebox_widget' );
+}
+add_action( 'widgets_init', 'fb_likebox_load_widget' );
+
+
 
 /*-------------------------------------------*
-    Theme oprtions - Usando odin
+    Theme options - Odin
 *------------------------------------------*/
 function odin_theme_settings() {
 
@@ -505,7 +607,10 @@ add_action( 'init', 'odin_theme_settings', 1 );
 // add_filter('intermediate_image_sizes_advanced', 'wpmayor_filter_image_sizes');
  
 
- function odin_carousel_cpt() {
+/*-------------------------------------------*
+        Carrossel - Custom Post Type
+*------------------------------------------*/
+function odin_carousel_cpt() {
     $video = new Odin_Post_Type(
         'Carrossel', // Nome (Singular) do Post Type.
         'carrossel' // Slug do Post Type.
@@ -551,9 +656,10 @@ add_action( 'init', 'odin_theme_settings', 1 );
 
 add_action( 'init', 'odin_carousel_cpt', 1 );
 
-// Include the Odin_Metabox class.
-require_once get_template_directory() . '/core/classes/class-metabox.php';
 
+/*-------------------------------------------*
+        Metabox do Carrossel
+*------------------------------------------*/
 function carrossel_metabox() {
 
     $videos_metabox = new Odin_Metabox(
@@ -609,6 +715,21 @@ function carrossel_metabox() {
                 'label'      => __( 'Subtítulo', 'odin' ), // Required
                 'type'       => 'text', // Required
                 'description' => __( 'Subtítilo que aparecerá na imagem do carrossel', 'odin' ) // Optional
+            ),
+
+            array(
+                'id'          => 'cor_titulo', // Obrigatório
+                'label'       => __( 'Cor do título', 'odin' ), // Obrigatório
+                'type'        => 'color', // Obrigatório
+                // 'attributes' => array(), // Opcional (atributos para input HTML/HTML5)
+                'default'     => '#ffffff', // Opcional (cor em hexadecimal)
+            ),
+            array(
+                'id'          => 'fundo_titulo', // Obrigatório
+                'label'       => __( 'Fundo do título', 'odin' ), // Obrigatório
+                'type'        => 'color', // Obrigatório
+                // 'attributes' => array(), // Opcional (atributos para input HTML/HTML5)
+                'default'     => '#ffffff', // Opcional (cor em hexadecimal)
             ),
 
         )
