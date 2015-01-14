@@ -125,6 +125,13 @@ p {
 	font-family: 'Open Sans', sans-serif;
 }
 
+.page-title {
+	margin-top: 20px;
+	font-size: 25px;
+	color: #4b565c;
+}
+
+
 .cf {
   	zoom: 1;
 }
@@ -222,8 +229,6 @@ p {
   width: 100%;
 }
 
-
-
 /* Ícones */
 @font-face {
   font-family: 'fontello';
@@ -251,53 +256,42 @@ p {
   font-style: normal;
   font-weight: normal;
   speak: none;
- 
   display: inline-block;
   text-decoration: inherit;
-/*  width: 1em;*/
   margin-right: 10px;
   text-align: center;
-  /* opacity: .8; */
- 
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
-     
   /* fix buttons height, for twitter bootstrap */
   line-height: 1em;
- 
-  /* you can be more comfortable with increased icons size */
-   /*font-size: 120%; */
- 
-  /* Uncomment for 3D effect */
-  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
-.icon-mail-alt:before { content: '\e800'; } /* '' */
-.icon-heart:before { content: '\e801'; } /* '' */
-.icon-user:before { content: '\e802'; } /* '' */
-.icon-gplus:before { content: '\e803'; } /* '' */
-.icon-pinterest:before { content: '\e804'; } /* '' */
-.icon-linkedin:before { content: '\e805'; } /* '' */
-.icon-twitter:before { content: '\e806'; } /* '' */
-.icon-facebook:before { content: '\e807'; } /* '' */
-.icon-youtube:before { content: '\e808'; } /* '' */
-.icon-instagram:before { content: '\e809'; } /* '' */
-.icon-arrow-left:before { content: '\e80a'; } /* '' */
-.icon-arrow-right:before { content: '\e80b'; } /* '' */
-.icon-paper-plane:before { content: '\e80c'; } /* '' */
-.icon-money:before { content: '\e80d'; } /* '' */
-.icon-pencil:before { content: '\e80e'; } /* '' */
-.icon-loading:before { content: '\e80f'; } /* '' */
-.icon-search:before { content: '\e810'; } /* '' */
-.icon-friends:before { content: '\e811'; } /* '' */
-.icon-print:before { content: '\e812'; } /* '' */
-.icon-calendar:before { content: '\e813'; } /* '' */
-.icon-location:before { content: '\e814'; } /* '' */
-.icon-house:before { content: '\e815'; } /* '' */
-.icon-ok:before { content: '\e816'; } /* '' */
-.icon-info:before { content: '\e817'; } /* '' */
-.icon-phone:before { content: '\e818'; } /* '' */
+.icon-mail-alt:before { content: '\e800'; }
+.icon-heart:before { content: '\e801'; }
+.icon-user:before { content: '\e802'; }
+.icon-gplus:before { content: '\e803'; }
+.icon-pinterest:before { content: '\e804'; }
+.icon-linkedin:before { content: '\e805'; }
+.icon-twitter:before { content: '\e806'; }
+.icon-facebook:before { content: '\e807'; }
+.icon-youtube:before { content: '\e808'; }
+.icon-instagram:before { content: '\e809'; }
+.icon-arrow-left:before { content: '\e80a'; }
+.icon-arrow-right:before { content: '\e80b'; }
+.icon-paper-plane:before { content: '\e80c'; }
+.icon-money:before { content: '\e80d'; }
+.icon-pencil:before { content: '\e80e'; }
+.icon-loading:before { content: '\e80f'; }
+.icon-search:before { content: '\e810'; }
+.icon-friends:before { content: '\e811'; }
+.icon-print:before { content: '\e812'; }
+.icon-calendar:before { content: '\e813'; }
+.icon-location:before { content: '\e814'; }
+.icon-house:before { content: '\e815'; }
+.icon-ok:before { content: '\e816'; }
+.icon-info:before { content: '\e817'; }
+.icon-phone:before { content: '\e818'; }
 
 /* ======================================
 	HEADER
@@ -383,7 +377,8 @@ p {
 	line-height: 65px;
 }
 .main-header nav.menu-navigation li {
-	display: inline-block;
+	display: block;
+	float: left;
 }
 .main-header nav.menu-navigation li a {
 	display: block;
@@ -398,8 +393,6 @@ p {
 .main-header nav.menu-navigation li a:hover {
 	border-bottom: 2px solid #000;
 }
-
-
 
 /* ======================================
 	FRONT-PAGE
@@ -580,8 +573,7 @@ p {
 /* Lista de Imóveis */
 .list-property {
 	width: 100%;
-	height: auto;
-	margin: 40px 20px;
+	margin: 40px 0;
 }
 
 .property {
@@ -1116,4 +1108,35 @@ p {
 #lang_sel_list img.iclflag {
 	width: auto !important;
 	height: auto !important;
+}
+
+/* ---------------------------------*
+	BUSCA - não encontrada
+*----------------------------------*/
+.search-again {
+	width: 590px;
+	text-align: center;
+	margin: 60px auto;
+}
+.search-again .search-form {
+	margin-top: 40px;
+}
+.search-again label {
+	display: block;
+	float: left;
+	margin-left: 90px;
+	margin-right: 5px;
+}
+.search-again label span {
+	display: none;
+}
+.search-again  input[type=search] {
+	width: 300px;
+	height: 36px;
+	padding-left: 10px;
+}
+.search-again input[type=submit] {
+	height: 36px;
+	margin-top: 0;
+	float: left;
 }

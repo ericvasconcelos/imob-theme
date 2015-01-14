@@ -1,7 +1,7 @@
 <?php get_header() ?>
 
 
-	<section id="front-page">
+	<div id="front-page">
 		<div class="container">
 			<section id="carousel" class="owl-carousel">
 				
@@ -34,19 +34,7 @@
 						
 				<?php endwhile; ?>
 				
-			</section><!-- /carousel -->
-			
-			<!-- 
-			<div class="item-img">Carrossel</div>
-			<div class="nav-carousel">
-				<span class="c-previous">
-					<i class="icon-arrow-left"></i>
-				</span>
-				<span class="c-next">
-					<i class="icon-arrow-right"></i>
-				</span>
-			</div> -->
-
+			</section><!-- .carousel -->
 
 			<section id="advanced-search">
 				<form action="post" class="cf">
@@ -87,7 +75,8 @@
 								<option value="">Opção 1</option>
 							</select>
 						<p>
-					</div><!-- /left-side -->
+					</div><!-- .left-side -->
+
 					<div class="right-side">
 						<p>
 							<label>Bairro</label>
@@ -125,12 +114,12 @@
 								<option value="">Opção 1</option>
 							</select>
 						<p>
-					</div><!-- /right-side -->
+					</div><!-- .right-side -->
 					<input type="button" value="Pesquisar Imóvel">
 				</form>
-			</section><!-- /advanced-search -->
+			</section><!-- .advanced-search -->
 		</div>
-	</section>
+	</div><!-- #front-page -->
 
 	<section id="list-property">
 		<div class="container">
@@ -147,169 +136,48 @@
 			</div>
 			<div class="list-property cf">
 				<div class="row">
-					<div class="col-3">
-						<div class="property">
-							<div class="img">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/imovel-lista.jpg" alt="Imóvel">
-							</div>
-							<div class="status-prop cf forsale">
-								<span>À Venda</span>
-							</div>
-							<div class="address">
-								<p class="street">Rua Namur 792</p>
-								<p class="city">Vila Valqueire - Rio de Janeiro</p>
-							</div>
-							<div class="price">
-								<i class="icon-money"></i>
-								<span class="price-prop">230.000</span>
-							</div>
-							<div class="info cf">
-								<div class="foot-plan">
-									<i class="icon-foot-plan"></i>
-									<span class="value"><span>970</span>m²</span>
-								</div>
-								<div class="beds">
-									<i class="icon-beds"></i>
-									<span class="value">2</span>
-								</div>
-								<div class="bathroons">
-									<i class="icon-bathroons"></i>
-									<span class="value">1</span>
-								</div>
-							</div>
-						</div>
-					</div><!-- /col-3 -->
-					<div class="col-3">
-						<div class="property">
-							<div class="img">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/imovel-lista.jpg" alt="Imóvel">
-							</div>
-							<div class="status-prop cf forsale">
-								<span>À Venda</span>
-							</div>
-							<div class="address">
-								<p class="street">Rua Namur 792</p>
-								<p class="city">Vila Valqueire - Rio de Janeiro</p>
-							</div>
-							<div class="price">
-								<i class="icon-money"></i>
-								<span class="price-prop">230.000</span>
-							</div>
-							<div class="info cf">
-								<div class="foot-plan">
-									<i class="icon-foot-plan"></i>
-									<span class="value">70<span>m²</span></span>
-								</div>
-								<div class="beds">
-									<i class="icon-beds"></i>
-									<span class="value">2</span>
-								</div>
-								<div class="bathroons">
-									<i class="icon-bathroons"></i>
-									<span class="value">1</span>
-								</div>
-							</div>
-						</div>
-					</div><!-- /col-3 -->
-					
-					<div class="col-3">
-						<div class="property">
-							<div class="img">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/imovel-lista.jpg" alt="Imóvel">
-							</div>
-							<div class="status-prop cf forsale">
-								<span>À Venda</span>
-							</div>
-							<div class="address">
-								<p class="street">Rua Namur 792</p>
-								<p class="city">Vila Valqueire - Rio de Janeiro</p>
-							</div>
-							<div class="price">
-								<i class="icon-money"></i>
-								<span class="price-prop">230.000</span>
-							</div>
-							<div class="info cf">
-								<div class="foot-plan">
-									<i class="icon-foot-plan"></i>
-									<span class="value"><span>970</span>m²</span>
-								</div>
-								<div class="beds">
-									<i class="icon-beds"></i>
-									<span class="value">2</span>
-								</div>
-								<div class="bathroons">
-									<i class="icon-bathroons"></i>
-									<span class="value">1</span>
-								</div>
-							</div>
-						</div>
-					</div><!-- /col-3 -->
-					
-					<div class="col-3">
-						<div class="property">
-							<div class="img">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/imovel-lista.jpg" alt="Imóvel">
-							</div>
-							<div class="status-prop cf forsale">
-								<span>À Venda</span>
-							</div>
-							<div class="address">
-								<p class="street">Rua Namur 792</p>
-								<p class="city">Vila Valqueire - Rio de Janeiro</p>
-							</div>
-							<div class="price">
-								<i class="icon-money"></i>
-								<span class="price-prop">230.000</span>
-							</div>
-							<div class="info cf">
-								<div class="foot-plan">
-									<i class="icon-foot-plan"></i>
-									<span class="value"><span>970</span>m²</span>
-								</div>
-								<div class="beds">
-									<i class="icon-beds"></i>
-									<span class="value">2</span>
-								</div>
-								<div class="bathroons">
-									<i class="icon-bathroons"></i>
-									<span class="value">1</span>
-								</div>
-							</div>
-						</div>
-					</div><!-- /col-3 -->
 
-					<div class="col-3">
-						<div class="property">
-							<div class="img">
-								<img src="<?php echo get_template_directory_uri(); ?>/assets/images/imovel-lista.jpg" alt="Imóvel">
-							</div>
-							<div class="status-prop cf forrent">
-								<span>Aluguel</span>
-							</div>
-							<div class="address">
-								<p class="street">Rua Namur 792</p>
-								<p class="city">Vila Valqueire - Rio de Janeiro</p>
-							</div>
-							<div class="price">
-								<i class="icon-money"></i>
-								<span class="price-prop">230.000</span>
-							</div>
-							<div class="info cf">
-								<div class="foot-plan">
-									<i class="icon-foot-plan"></i>
-									<span class="value"><span>970</span>m²</span>
+				 	<?php 	
+				 		$query = new WP_Query( 'cat=20' );
+						if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post(); ?>
+
+						<div class="col-3">
+							<div class="property">
+								<div class="img">
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/images/imovel-lista.jpg" alt="Imóvel">
 								</div>
-								<div class="beds">
-									<i class="icon-beds"></i>
-									<span class="value">2</span>
+								<div class="status-prop cf forsale">
+									<span>À Venda</span>
 								</div>
-								<div class="bathroons">
-									<i class="icon-bathroons"></i>
-									<span class="value">1</span>
+								<div class="address">
+									<?php the_title( '<p class="street">', '</p>' ); ?>
+									<p class="city">Vila Valqueire - Rio de Janeiro</p>
+								</div>
+								<div class="price">
+									<i class="icon-money"></i>
+									<span class="price-prop">230.000</span>
+								</div>
+								<div class="info cf">
+									<div class="foot-plan">
+										<i class="icon-foot-plan"></i>
+										<span class="value"><span>970</span>m²</span>
+									</div>
+									<div class="beds">
+										<i class="icon-beds"></i>
+										<span class="value">2</span>
+									</div>
+									<div class="bathroons">
+										<i class="icon-bathroons"></i>
+										<span class="value">1</span>
+									</div>
 								</div>
 							</div>
-						</div>
-					</div><!-- /col-3 -->
+						</div><!-- /col-3 -->
+
+					<?php endwhile; else : ?>
+						<p><?php _e( 'Desculpe, mas não encontramos imóveis para esse filtro', 'textdomain' ); ?></p>
+					<?php endif; ?>
+					
 
 					<div class="col-3">
 						<div class="property">
